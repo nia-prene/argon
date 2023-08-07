@@ -1,0 +1,45 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "city.tsx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "city.tmx": {
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 401.75,
+                "y": 329.75
+            }
+        },
+        "city.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 3
+        }
+    },
+    "last.imagePath": "/home/agrey/adventure/tiled",
+    "map.height": 32,
+    "map.lastUsedFormat": "tmx",
+    "map.renderOrder": null,
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 32,
+    "openFiles": [
+        "city.tsx",
+        "city.tmx"
+    ],
+    "project": "adventure.tiled-project",
+    "recentFiles": [
+        "city.tmx",
+        "city.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

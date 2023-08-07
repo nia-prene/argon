@@ -1,33 +1,53 @@
 INCLUDE "hardware.inc"
+SECTION "Camera RAM", WRAM0
+
+Camera_xPos:
+	ds 3
+Camera_yPos:
+	ds 3
 
 SECTION "Camera", ROM0
 
 Camera_open_shutter::
-	; Copy the tilemap
+	ld hl, Camera_xPos;	set camera to $01 00 00, $01 00 00
+	ld a, $01
+	ld [hl+],a
+	ld a, $00
+	ld [hl+],a
+	ld [hl],a
 	
+	ld hl, Camera_yPos
+	ld a, $01
+	ld [hl+],a
+	ld a, $00
+	ld [hl+],a
+	ld [hl],a
+
 	
-	ld a, 0;		this is the map
+	ld hl,$0000;		get map pointer
+	push hl
 
 	ld bc, Maps_l
-	add a, c;		
-	ld c, a
-	ld a, d
-	adc a, 0
-	ld b, a
-	ld a, [bc]
-	ld e, a
+	add hl, bc
+	ld e, [hl]
 	
-	ld a, 0;		this is the map
+	pop hl
 
 	ld bc, Maps_h
-	add a, c
-	ld c, a
-	ld a, b
-	adc a, 0
-	ld b, a
-	ld a, [bc]
-	ld d, a
+	add hl, bc
+	ld d, [hl];		de is map pointer
 
+	
+	ld hl,Camera_xPos+1
+	ld a,[hl-]
+	sub a,128
+	ld c,a
+	ld a,[hl]
+	sbc a,0
+	ld b,a
+	
+
+	ld c,[hl]
 	
 	ld hl, $9800;		point at tilemap vram
 	ld bc, 1024;		get size of full tilemap
